@@ -1,0 +1,467 @@
+:root {
+  --ground: #E9EDF0;
+  --surface: #FFFFFF;
+  --surface-2: #F3F6F8;
+  --surface-3: #E8EEF1;
+  --ink: #101820;
+  --ink-2: #55616E;
+  --ink-3: #7C8794;
+  --line: #D3DBE1;
+  --line-2: #E4EAEE;
+  --accent: #0E5F6D;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #DCEAED;
+  --data: #9A5F08;
+  --live: #A8302A;
+  --live-soft: #F7E2E0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ground: #0D1218;
+    --surface: #151D25;
+    --surface-2: #1B242E;
+    --surface-3: #212C37;
+    --ink: #E8EEF3;
+    --ink-2: #97A5B3;
+    --ink-3: #74828F;
+    --line: #29333D;
+    --line-2: #202932;
+    --accent: #45AABB;
+    --accent-ink: #0B1418;
+    --accent-soft: #16323A;
+    --data: #DFA748;
+    --live: #E4695F;
+    --live-soft: #331916;
+  }
+}
+
+:root[data-theme='dark'] {
+  --ground: #0D1218;
+  --surface: #151D25;
+  --surface-2: #1B242E;
+  --surface-3: #212C37;
+  --ink: #E8EEF3;
+  --ink-2: #97A5B3;
+  --ink-3: #74828F;
+  --line: #29333D;
+  --line-2: #202932;
+  --accent: #45AABB;
+  --accent-ink: #0B1418;
+  --accent-soft: #16323A;
+  --data: #DFA748;
+  --live: #E4695F;
+  --live-soft: #331916;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--fonte-ui), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- topo ---------- */
+
+.topo {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.topo-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.marca {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.marca b {
+  font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.marca span {
+  font-family: var(--fonte-mono), monospace;
+  font-size: 0.7rem;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.formatos {
+  display: flex;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.formatos button {
+  padding: 6px 13px;
+  background: var(--surface);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.formatos button[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+/* ---------- esportes ---------- */
+
+.esportes {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 14px 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.esportes button {
+  padding: 6px 15px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  font-size: 0.83rem;
+  color: var(--ink-2);
+}
+
+.esportes button[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+/* ---------- colunas ---------- */
+
+.paineis {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 14px 24px 48px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 1000px) {
+  .paineis {
+    grid-template-columns: 260px 300px 1fr;
+  }
+}
+
+.painel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.painel-cab {
+  padding: 11px 15px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.painel-cab h2 {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.painel-cab em {
+  font-family: var(--fonte-mono), monospace;
+  font-style: normal;
+  font-size: 0.7rem;
+  color: var(--ink-3);
+}
+
+.rolagem {
+  overflow-y: auto;
+  max-height: 62vh;
+}
+
+.item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--line-2);
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.item:hover {
+  background: var(--surface-2);
+}
+
+.item[aria-current='true'] {
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.item .nome {
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.item .meta {
+  font-family: var(--fonte-mono), monospace;
+  font-size: 0.7rem;
+  color: var(--ink-3);
+  white-space: nowrap;
+  flex: none;
+}
+
+.ao-vivo {
+  color: var(--live);
+  background: var(--live-soft);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.vazio,
+.carregando {
+  padding: 22px 16px;
+  color: var(--ink-3);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.erro {
+  padding: 16px;
+  margin: 12px;
+  border: 1px solid var(--live);
+  background: var(--live-soft);
+  color: var(--live);
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* ---------- mercados ---------- */
+
+.jogo-cab {
+  padding: 15px;
+  border-bottom: 1px solid var(--line);
+}
+
+.jogo-cab h3 {
+  margin: 0;
+  font-size: 1.16rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.jogo-cab .linha-meta {
+  margin-top: 5px;
+  font-family: var(--fonte-mono), monospace;
+  font-size: 0.73rem;
+  color: var(--ink-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 16px;
+}
+
+.busca {
+  padding: 11px 15px;
+  border-bottom: 1px solid var(--line);
+}
+
+.busca input {
+  width: 100%;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.86rem;
+}
+
+.mercado {
+  border-bottom: 1px solid var(--line-2);
+}
+
+.mercado:last-child {
+  border-bottom: 0;
+}
+
+.mercado > summary {
+  padding: 11px 15px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.mercado > summary::-webkit-details-marker {
+  display: none;
+}
+
+.mercado > summary:hover {
+  background: var(--surface-2);
+}
+
+.mercado > summary b {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.mercado > summary .tag {
+  font-family: var(--fonte-mono), monospace;
+  font-size: 0.68rem;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.mercado[open] > summary {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line-2);
+}
+
+.tbl-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+th {
+  text-align: left;
+  padding: 8px 15px;
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--line-2);
+  white-space: nowrap;
+}
+
+td {
+  padding: 8px 15px;
+  border-bottom: 1px solid var(--line-2);
+  white-space: nowrap;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background: var(--surface-2);
+}
+
+.odd {
+  text-align: right;
+  font-family: var(--fonte-mono), monospace;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--data);
+}
+
+.linha-col {
+  text-align: right;
+  font-family: var(--fonte-mono), monospace;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+
+.rodape {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+  font-family: var(--fonte-mono), monospace;
+  font-size: 0.71rem;
+  color: var(--ink-3);
+  line-height: 1.7;
+}
+
+/* nome do campeonato com o país embaixo, para desfazer nomes repetidos */
+.item .nome {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.item .regiao {
+  font-family: var(--fonte-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--ink-3);
+}
+
+.filtro-pe {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+  font-size: 0.76rem;
+  color: var(--ink-2);
+  cursor: pointer;
+  user-select: none;
+}
